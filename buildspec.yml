@@ -2,27 +2,32 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      nodejs: 14 # Adjust the Node.js version as required by your application
     commands:
+      - echo Installing Node.js version 14...
+      - n 14 && rm -rf /tmp/*
       - echo Installing dependencies...
       - npm install
+
   pre_build:
     commands:
       - echo Running pre-build tasks...
+      # Add any other pre-build tasks here, if needed
+
   build:
     commands:
       - echo Building the application...
-      - npm run build  # Builds your React front-end (adjust if needed)
+      - npm run build
+
   post_build:
     commands:
       - echo Running post-build tasks...
+      # Add any post-build tasks here, if needed
 
 artifacts:
   files:
     - '**/*'
-  base-directory: build/  # Adjust this directory if your build output is elsewhere
+  base-directory: 'build/' # Ensure this matches the actual build output directory
 
 cache:
   paths:
-    - 'node_modules/**/*'  # Caches dependencies to speed up subsequent builds
+    - 'node_modules/**/*'

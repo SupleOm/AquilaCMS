@@ -57,5 +57,5 @@
     "react-dom": "^17.0.0",
     "react-scripts": "5.0.0"  // Ensure this line is present
   
-}
+},
 }

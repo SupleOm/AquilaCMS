@@ -4,7 +4,7 @@ phases:
   install:
     commands:
       - echo Installing Node.js version 14...
-      - n 14 && rm -rf /tmp/*
+      - n 16 && rm -rf /tmp/*
       - echo Installing dependencies...
       - npm install
 

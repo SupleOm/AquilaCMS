@@ -1,0 +1,32 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14 # Adjust the Node.js version as required by your application
+    commands:
+      - echo Installing dependencies...
+      - npm install
+  pre_build:
+    commands:
+      - echo Running pre-build tasks...
+      - npm run lint  # Optional: Lint your code (remove this line if not needed)
+      - npm test      # Optional: Run tests before building (remove if not needed)
+  build:
+    commands:
+      - echo Building the application...
+      - npm run build  # Builds your React front-end (adjust if needed)
+  post_build:
+    commands:
+      - echo Running post-build tasks...
+      - npm run migrate  # Optional: Run database migrations (remove if not applicable)
+      - npm test          # Optional: Run tests after the build (remove if not needed)
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: build/  # Adjust this directory if your build output is elsewhere
+
+cache:
+  paths:
+    - 'node_modules/**/*'  # Caches dependencies to speed up subsequent builds

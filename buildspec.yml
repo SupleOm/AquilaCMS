@@ -10,8 +10,6 @@ phases:
   pre_build:
     commands:
       - echo Running pre-build tasks...
-      - npm run lint  # Optional: Lint your code (remove this line if not needed)
-      - npm test      # Optional: Run tests before building (remove if not needed)
   build:
     commands:
       - echo Building the application...
